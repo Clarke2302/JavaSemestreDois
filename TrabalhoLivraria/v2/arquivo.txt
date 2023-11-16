@@ -1,0 +1,4 @@
+5465434,Diogenes o Poeta,2006,Filosofia,Grecia,33.4,2,66.8
+37282829,Tomates Verdes Fritos,1967,Ficcao Historica,Globo Filmes,48.9,5,244.5
+74893920,Tartarugas Ninjas,2003,Acao e Aventura,BrazucaStyle,19.9,2,39.8
+99957372,As Cronicas de Narnia,1915,Fantasia,AdventureKids,50.0,6,300.0
