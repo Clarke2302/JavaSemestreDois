@@ -1,11 +1,18 @@
 #FL66,Diaba,Beco das Loucas 93,516987756
 355656,Turma do Pagode,2015,MusicaBR,uhuuuh,R$66.31,4
 
-#FL01,Barra Sul,Diário de Noticias 80,3221-6369
-3426,compiladores,2012,computação,pearson,R$135.5,50
-2631,sistemas digitais,2017,computação,liber,R$99.9,30
-9680,senhor dos aneis: a sociedade do anel,2005,fantasia,harper,R$35.0,120
+#FL1,Barra Sul,Diário de Noticias 80,3221-6369
+3426,Compiladores,2012,Computacao,pearson,R$135.5,50
+2631,Sistemas digitais,2017,computacao,liber,R$99.9,30
+9680,Senhor dos aneis: a sociedade do anel,2005,fantasia,harper,R$35.0,120
 
-#FL02, Centro, Andradas 1312, 3020-2253
-9680,senhor dos aneis: a sociedade do anel,2005,fantasia,harper,R$35.0,20
+#FL2, Centro, Andradas 1312, 3020-2253
+9680,Senhor dos aneis: a sociedade do anel,2005,fantasia,harper,R$35.0,20
 9681,senhor dos aneis: as duas torres,2005,fantasia,harper,R$35.0,20
+
+#FL72,Guaruja,Rua dos Noves 135,51 987486354
+465466,Eu vou tomar o Tacaca,2023,Biografia Joelma,Calypso,R$35.12,6
+
+#FL88,Filial Leste,Rua dos Famosos 2001,51 988476358
+465466,Eu vou tomar o Tacaca,2023,Biografia Joelma,Calypso,R$62.32,8
+
