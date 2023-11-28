@@ -214,16 +214,16 @@ public class sistemaLivraria {
         }
     
     //----------------------3----------------------------------------------------
-    public static void exibirLivros(ArrayList<Livro>livros){
+    public static void exibirLivros(ArrayList<Livro>livros){ //erro
         for(Livro id : livros){
             System.out.println("------------------------------------"+"\n");
             System.out.println(">>>>>>>Cod#"+id.getCodigo()+"\n"+
                     "Titulo/Editora: "+id.getTitulo()+"/"+id.getEditora()+
                     "\n"+"Categoria: "+id.getArea()+"\n"+
-                    "Ano: "+id.getAno()+"\n"+
-                    "Valor: R$ "+String.format("%.2f", +id.getValor())+"\n"+
-                    "Estoque: "+id.getQuantidadeEstoque()+" unidades"+"\n"+
-                    "Valor total em estoque: R$ "+String.format("%.2f",+id.getValorEmEstoque()+"\n"));
+                    "Ano: "+id.getAno());
+                    System.out.printf("Valor: R$%.2f \n", id.getValor());
+                    System.out.println("Estoque: "+id.getQuantidadeEstoque()+" unidades");
+                    System.out.printf("Valor total em estoque: R$%.2f \n",id.getValorEmEstoque());
                     
 
         }
@@ -449,7 +449,7 @@ public class sistemaLivraria {
         System.out.println("\n"+"Listagem de Estoque na " + filial.getNomeFilial()+"\n"
                             +"=========================================="+"\n");
         for (Livro id : filial.getLivrosEmEstoque()) {
-            System.out.println(">>>>>>>Cod#"+id.getCodigo()+"\n"+
+            System.out.println("\n"+">>>>>>>Cod#"+id.getCodigo()+"\n"+
                     "Titulo/Editora: "+id.getTitulo()+"/"+id.getEditora()+
                     "\n"+"Categoria: "+id.getArea()+"\n"+
                     "Ano: "+id.getAno()+"\n"+
@@ -465,13 +465,14 @@ public class sistemaLivraria {
         System.out.println("\n"+"Listagem de Estoque na Filial " + filial.getNomeFilial()+"\n"
                             +"=========================================="+"\n");
         for (Livro id : filial.getLivrosEmEstoque()) {
-            System.out.println(">>>>>>>Cod#"+id.getCodigo()+"\n"+
+            System.out.println("\n"+">>>>>>>Cod#"+id.getCodigo()+"\n"+
                     "Titulo/Editora: "+id.getTitulo()+"/"+id.getEditora()+
                     "\n"+"Categoria: "+id.getArea()+"\n"+
                     "Ano: "+id.getAno()+"\n"+
                     "Valor: R$ "+String.format("%.2f", +id.getValor())+"\n"+
                     "Estoque: "+id.getQuantidadeEstoque()+" unidades"+"\n"+
                     "Valor total em estoque: R$ "+String.format("%.2f",+id.getValorEmEstoque()));
+                    System.out.println(" ");
         }
     
         double valorTotalFilial = calcularValorTotalEstoqueFilial(filial.getLivrosEmEstoque(), filialCodigo);
@@ -490,7 +491,7 @@ public class sistemaLivraria {
             FileInputStream arquivo = new FileInputStream("arquivo.txt");//arquivo txt
             Scanner ler = new Scanner(arquivo);
             System.out.println("\n"+"O estoque foi carregado com sucesso!");
-            //ler.close();
+            ler.close();
             
         } catch (Exception e) {
             System.out.println("\n"+"Erro ao carregar o estoque.");
@@ -501,10 +502,7 @@ public class sistemaLivraria {
         FileInputStream arquivo = new FileInputStream("arquivo.txt");
         Scanner ler = new Scanner(arquivo);
 
-        //String antesCod = "#FL";
-        //String reais = "R$";
-
-            while(ler.hasNext()){ //carregar Filial ---> 4 linhas
+            while(ler.hasNextLine()){ //carregar Filial ---> 4 linhas
 
                 String linha = ler.nextLine();
 
@@ -525,32 +523,39 @@ public class sistemaLivraria {
                 filiais.add(fifi);
                 }
 
-
-            while(ler.hasNext()){ //carregar livro ----> 7 linhas  //mudei pra line = antigo --> ler.hasNextLine
-
-                linha = ler.nextLine();
                 
-                if(linha!= null && !linha.isEmpty()){
+            while(ler.hasNext()){ //carregar livro ----> 7 linhas  //mudei pra line = antigo --> ler.hasNextLine
+                
+                String linhaLivro = ler.nextLine();
+                
+                if(linhaLivro!= null && !linhaLivro.isEmpty()){
+                    
+                    
+                
 
-                SplitLinha = linha.split(",");
+                String [] SplitLinhaLivro = linhaLivro.split(",");
 
-                String comRS = SplitLinha[5].replace("R$",""); //erro
+                String comRS = SplitLinhaLivro[5].replace("R$","");
                 
                 double valorSemRS = Double.parseDouble(comRS);
 
-                double valorEmEstoque = Double.parseDouble(comRS)*Integer.parseInt(SplitLinha[6]);
-        
+                double valorEmEstoque = Double.parseDouble(comRS)*Integer.parseInt(SplitLinhaLivro[6]);
+                
+                System.out.println("Livro saídas: "+"\n"+"Cod: "+Integer.parseInt(SplitLinhaLivro[0])+" Titulo: "+SplitLinhaLivro[1]+" Ano:"+Integer.parseInt(SplitLinhaLivro[2])
+                                    +" Area: "+SplitLinhaLivro[3]+" Editora: "+SplitLinhaLivro[4]+" Valor: "+valorSemRS+" QuantEstoque: "+Integer.parseInt(SplitLinhaLivro[6])
+                                    +" Valor em estoque: "+valorEmEstoque+" Filial Cadastrada: "+fifi.getNomeFilial());
                 
                 //        0           1         2        3            4                 5               6                       7                   8
                 //int codigo, String titulo, int ano,String area,String editora, double valor, int quantidadeEstoque, double valorEmEstoque, Filial filialCadastrada
-                Livro livro1 = new Livro (Integer.parseInt(SplitLinha[0]),SplitLinha[1],Integer.parseInt(SplitLinha[2]),SplitLinha[3],SplitLinha[4],
-                valorSemRS,Integer.parseInt(SplitLinha[6]),valorEmEstoque,fifi);
+                Livro livro1 = new Livro (Integer.parseInt(SplitLinhaLivro[0]),SplitLinhaLivro[1],Integer.parseInt(SplitLinhaLivro[2]),SplitLinhaLivro[3],SplitLinhaLivro[4],
+                valorSemRS,Integer.parseInt(SplitLinhaLivro[6]),valorEmEstoque,fifi);
 
                 livros.add(livro1); //colocando livros na ArrayList
                 fifi.adicionarLivroEstoque(livro1);
-
+                }else{
+                    break;
                 }
-                
+    
             }
         }
     }
@@ -574,7 +579,7 @@ public class sistemaLivraria {
 
             try{
             
-                for(Livro coloca: livros){
+                for(Livro coloca: filial.getLivrosEmEstoque()){
                     arq.write(coloca.getCodigo() + "," + coloca.getTitulo() + "," + coloca.getAno() + "," + coloca.getArea() + "," + coloca.getEditora() + "," +reais+coloca.getValor() + "," + coloca.getQuantidadeEstoque() + "\n");
                     escreverDeuCerto = true;
                     
@@ -584,6 +589,7 @@ public class sistemaLivraria {
                 System.out.println(e.getMessage());
                 escreverDeuCerto = false;
             }
+            arq.write("\n"); //
         }
         arq.close();
     }
