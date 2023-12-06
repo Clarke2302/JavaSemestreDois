@@ -11,18 +11,22 @@ public class Veiculo {
         this.modelo = modelo;
         this.fabricante= fabricante;
         this.pais = pais;
-        this.posX = 0;
-        this.posY = 0;
-        this.valor = 0;
-        this.passageiros = 0;
+        this.posX = posX;
+        this.posY = posY;
+        this.valor = valor;
+        this.passageiros = passageiros;
         
     }
 
 
-    public void deslocamento(double posX, double posY ){
+    public void deslocamento(double deslocaX, double deslocaY ){
         //O método de deslocamento incrementa/decrementa os valores de posição (X/Y/Z)
-        this.posX = posX;
-        this.posY = posY;
+        this.posX += deslocaX;
+        this.posY += deslocaY;
+
+        System.out.println("Posicoes do Veículo após o deslocamento:"
+        +"\n"+"Posicao X: "+posX
+        +"\n"+"Posicao Y: "+posY);
 
     }
 }
