@@ -2,8 +2,8 @@ public class Helicoptero extends VeiculoAereo{
 
     int rotores;
 
-    public Helicoptero(String fabricante,String empresa, String modelo,int codigo,String pais, double posX, double posY,double posZ,double valor, int passageiros, int rotores){
-        super(fabricante,empresa,modelo,codigo, pais, posX, posY, posZ, valor, passageiros);
+    public Helicoptero(String fabricante,String empresa, String modelo,int codigo,String pais, double posX, double posY,double posZ,double valor, int passageiros, int rotores,String dono){
+        super(fabricante,empresa,modelo,codigo, pais, posX, posY, posZ, valor, passageiros,dono);
         this.rotores=rotores;
     }
 
@@ -16,7 +16,7 @@ public class Helicoptero extends VeiculoAereo{
                             +"Código: "+codigo+"\n"
                             +"Número de Rotores: "+rotores+"\n"
                             +"Número de Passageiros: "+passageiros+"\n"
-                            +"Preço: R$"+valor+"\n"
+                            +"Preço: R$"+String.format("%.2f", +valor)+"\n"
                             +"==================================");
     }
 }

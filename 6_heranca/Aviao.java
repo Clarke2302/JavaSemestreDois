@@ -2,8 +2,8 @@ public class Aviao extends VeiculoAereo{
     
 
 
-    public Aviao(String fabricante,String empresa, String modelo,int codigo,String pais, double posX, double posY,double posZ,double valor, int passageiros){
-        super(fabricante,empresa,modelo,codigo, pais, posX, posY, posZ, valor, passageiros);
+    public Aviao(String fabricante,String empresa, String modelo,int codigo,String pais, double posX, double posY,double posZ,double valor, int passageiros, String dono){
+        super(fabricante,empresa,modelo,codigo, pais, posX, posY, posZ, valor, passageiros, dono);
     }
 
     public void Info(){
@@ -14,14 +14,21 @@ public class Aviao extends VeiculoAereo{
                             +"País: "+pais+"\n"
                             +"Código: "+codigo+"\n"
                             +"Número de Passageiros: "+passageiros+"\n"
-                            +"Preço: R$"+valor+"\n"
+                            +"Preço: R$"+String.format("%.2f", +valor)+"\n"
                             +"==================================");
     }
 
 
-    @Override
-    public void deslocamento(double x, double y) {
-        super.deslocamento(x,y);
+
+    public void deslocamento(double deslocaX, double deslocaY, double deslocaZ) {
+        this.posX += deslocaX;
+        this.posY += deslocaY;
+        this.posZ += deslocaZ;
+        System.out.println("Posicoes do Veículo após o deslocamento:"
+        +"\n"+"Posicao X: "+posX
+        +"\n"+"Posicao Y: "+posY
+        +"\n"+"Posicao Z: "+posZ);
+        
     }
 
     @Override
