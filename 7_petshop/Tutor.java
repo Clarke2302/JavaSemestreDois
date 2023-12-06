@@ -12,17 +12,22 @@ public class Tutor extends Pessoa{
 
     //------------------Infos-----------------
 
-    public void info_tutor(){
-        System.out.println("///////////Informações do Tutor////////////"+"\n"
-        +"Nome: "+getNomeCompleto()+"\n"
-        +"CPF: "+getCpf()+"\n"
-        +"Endereço: "+getEndereco()+"\n"
-        +"E-mail: "+getEmail()+"\n"
-        +"Telefone: "+getTelefone()+"\n"
-        +"///////////////////////////////////////"+"\n");
+    public void info_tutor(ArrayList<Integer>telefone){
+        if(){
+            for(Tutor a : ){
+            System.out.println("///////////Informações do Tutor////////////"+"\n"
+            +"Nome: "+getNomeCompleto()+"\n"
+            +"CPF: "+getCpf()+"\n"
+            +"Endereço: "+getEndereco()+"\n"
+            +"E-mail: "+getEmail()+"\n"
+            +"Telefone: "+getTelefone()+"\n"
+            +"///////////////////////////////////////"+"\n");
+            }
+        }
     }
 
-    public void info_pets(ArrayList<Pet> pets){
+    public void info_pets(ArrayList<Pet> pets, String nomeString){
+        
         for(Pet pepe : pets){
         System.out.println("///////////Informações do Pet////////////"+"\n"
                             +"Nome: "+pepe.getNome()+"\n"

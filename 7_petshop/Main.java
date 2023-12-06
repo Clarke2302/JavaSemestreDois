@@ -19,6 +19,7 @@ public class Main {
         Bibi.setTelefone(telefones,986756455);
 
         Tutor ABC = new Tutor("Bianca Moraes", "Rua do Andes, 158", "bibidosanjos@outlook.com", 854225423, telefones, petsCadastrados);
+        ABC.setTelefone(telefones,983473829);
 
         Pet cachorrinho = new Pet("Lulu", "Cachorro", "Vira-Lata", 6, tutoresCadastrados);
 
