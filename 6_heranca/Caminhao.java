@@ -21,7 +21,7 @@ public class Caminhao extends VeiculoTerrestre{
                             +"Quantidade de eixos: "+eixos+"\n"
                             +"Peso: "+peso+"\n"
                             +"Número de Passageiros: "+passageiros+"\n"
-                            +"Preço: R$"+valor+"\n"
+                            +"Preço: R$"+String.format("%.2f", +valor)+"\n"
                             +"Dono: "+dono+"\n"
                             +"==================================");
     }

@@ -23,7 +23,7 @@ public class Carro extends VeiculoTerrestre {
                             +"Potência: "+potencia+"\n"
                             +"Tipo de Combustível: "+tipoCombustivel+"\n"
                             +"Número de Passageiros: "+passageiros+"\n"
-                            +"Preço: R$"+valor+"\n"
+                            +"Preço: R$"+String.format("%.2f", +valor)+"\n"
                             +"Dono: "+dono+"\n"
                             +"==================================");
     }
