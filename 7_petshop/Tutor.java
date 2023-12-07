@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 
 public class Tutor extends Pessoa{
@@ -14,7 +15,7 @@ public class Tutor extends Pessoa{
 
     public void info_tutor(ArrayList<Integer>telefone){
         if(){
-            for(Tutor a : ){
+            for(Tutor a : tutores){
             System.out.println("///////////Informações do Tutor////////////"+"\n"
             +"Nome: "+getNomeCompleto()+"\n"
             +"CPF: "+getCpf()+"\n"
