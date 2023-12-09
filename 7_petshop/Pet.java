@@ -2,45 +2,71 @@ import java.util.ArrayList;
 
 public class Pet{
 
-private String especie, raca, nome;
-private int idade;
+    private String nome;
+    private String especie;
+    private String raca;
+    private int idade;
+    private Tutor tutor;
 
-ArrayList<Tutor> meuDono;
-
-
-    public Pet(String nome, String especie, String raca, int idade, ArrayList<Tutor>meuDono){
+    public Pet(String nome, String especie, String raca, int idade, Tutor tutor){
         this.nome=nome;
         this.especie=especie;
         this.raca=raca;
         this.idade=idade;
-        this.meuDono= new ArrayList<>();
+        this.tutor=tutor;
+
     }
 
-    //------------Infos-------------
-
-    public void info_pet(){
-        System.out.println("///////////Informações do Pet////////////"+"\n"
+    public void info_pet(ArrayList<Tutor> meuDono){
+        System.out.println("\n"+"///////////Informações do Pet////////////"+"\n"
                             +"Nome: "+getNome()+"\n"
                             +"Espécie: "+getEspecie()+"\n"
                             +"Raça: "+getRaca()+"\n"
-                            +"Idade: "+getIdade()+"\n"
-                            +"Dono: "+getMeuDono()+"\n"
-                            +"///////////////////////////////////////"+"\n");
+                            +"Idade: "+getIdade());
+
+            for(Tutor a : meuDono) {
+                if (a.getNome() == getTutor().getNome()) {
+                    System.out.print("Dono: "+ a.getNome() + "\n" + "///////////////////////////////////////" + "\n");
+                }
+            }
     }
 
-    public void info_tutores(ArrayList<Tutor> tutores){
-        for(Tutor a : tutores){
-            System.out.println("///////////Informações do Tutor////////////"+"\n"
-        +"Nome: "+a.getNomeCompleto()+"\n"
+    public void info_tutores(ArrayList<Tutor> meuDono){
+        for(Tutor a : meuDono){
+            if(a.getNome() == getTutor().getNome()){
+            System.out.println("\n"+"///////////Informações do Tutor////////////"+"\n"
+        +"Nome: "+a.getNome()+"\n"
         +"CPF: "+a.getCpf()+"\n"
         +"Endereço: "+a.getEndereco()+"\n"
         +"E-mail: "+a.getEmail()+"\n"
         +"Telefone: "+a.getTelefone()+"\n"
         +"///////////////////////////////////////"+"\n");
+            }
         }
     }
 
-    //--------------Getters and Setters----------------
+    public void infoTotalPets(ArrayList<Pet> petsCadastrados, ArrayList<Tutor> tutoresCadastrados){
+        for(Pet a : petsCadastrados) {
+            System.out.println("\n" + "///////////Informações do Pet////////////" + "\n"
+                    + "Nome: " + a.getNome() + "\n"
+                    + "Espécie: " + a.getEspecie() + "\n"
+                    + "Raça: " + a.getRaca() + "\n"
+                    + "Idade: " + a.getIdade());
+                for(Tutor b : tutoresCadastrados) {
+                    if (b.getNome() == a.getTutor().getNome()) {
+                        System.out.print("Dono: "+ b.getNome() + "\n" + "///////////////////////////////////////" + "\n");
+                    }
+                }
+        }
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     public String getEspecie() {
         return especie;
@@ -58,14 +84,6 @@ ArrayList<Tutor> meuDono;
         this.raca = raca;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public int getIdade() {
         return idade;
     }
@@ -74,14 +92,11 @@ ArrayList<Tutor> meuDono;
         this.idade = idade;
     }
 
-    public ArrayList<Tutor> getMeuDono() {
-        return meuDono;
+    public Tutor getTutor() {
+        return tutor;
     }
 
-    public void setMeuDono(ArrayList<Tutor> meuDono) {
-        this.meuDono = meuDono;
+    public void setTutor(Tutor tutor) {
+        this.tutor = tutor;
     }
-
-    
-
 }

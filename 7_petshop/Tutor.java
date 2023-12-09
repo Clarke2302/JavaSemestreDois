@@ -1,57 +1,112 @@
-
 import java.util.ArrayList;
 
 public class Tutor extends Pessoa{
     
-    ArrayList<Pet> pets;
+    private String nome; // Nome do tutor
+    private int cpf; // CPF do tutor
+    private String endereco; // Endereço do tutor
+    private String email;
+    private int telefone; // Telefone do tutor
 
-    public Tutor(String nomeCompleto, String endereco, String email, int cpf, ArrayList<Integer>telefone, ArrayList<Pet> pets){
+    private Pet pets;
 
-        super(nomeCompleto, endereco, email, cpf, telefone);
-        this.pets = new ArrayList<>();
+    Tutor(String nome, int cpf, String endereco, String email, int telefone, Pet pets) {
+      this.nome = nome;
+      this.cpf = cpf;
+      this.email=email;
+      this.endereco = endereco;
+      this.telefone = telefone;
+      this.pets=pets;
     }
 
-    //------------------Infos-----------------
+    public void info_tutor(ArrayList<Pet> meuPet,ArrayList<Integer> telefonesPessoa){
+        System.out.println("\n"+"///////////Informações do Tutor////////////"+"\n"+
+                "Nome: " + getNomeCompleto()+"\n"+
+                "CPF: " + getCpf()+"\n"+
+                "Endereço: " + getEndereco()+"\n"+
+                "E-mail: " + getEmail()+"\n"+
+                "Telefones: " + getTelefone());
 
-    public void info_tutor(ArrayList<Integer>telefone){
-        if(){
-            for(Tutor a : tutores){
-            System.out.println("///////////Informações do Tutor////////////"+"\n"
-            +"Nome: "+getNomeCompleto()+"\n"
-            +"CPF: "+getCpf()+"\n"
-            +"Endereço: "+getEndereco()+"\n"
-            +"E-mail: "+getEmail()+"\n"
-            +"Telefone: "+getTelefone()+"\n"
-            +"///////////////////////////////////////"+"\n");
+        for(Pet a : meuPet) {
+            if (a.getNome() == getPets().getNome()) {
+                System.out.println("Pet: "+ a.getNome() + "\n" + "///////////////////////////////////////" + "\n");
             }
         }
     }
 
-    public void info_pets(ArrayList<Pet> pets, String nomeString){
-        
-        for(Pet pepe : pets){
-        System.out.println("///////////Informações do Pet////////////"+"\n"
-                            +"Nome: "+pepe.getNome()+"\n"
-                            +"Espécie: "+pepe.getEspecie()+"\n"
-                            +"Raça: "+pepe.getRaca()+"\n"
-                            +"Idade: "+pepe.getIdade()+"\n"
-                            +"Dono: "+pepe.getMeuDono()+"\n"
-                            +"///////////////////////////////////////"+"\n");
+    public void info_pets(ArrayList<Pet> meuPet){
+        for(Pet a : meuPet) {
+            if (a.getNome() == getPets().getNome()) {
+                System.out.println("\n" + "///////////Informações do Pet////////////" + "\n"
+                        + "Nome: " + a.getNome() + "\n"
+                        + "Espécie: " + a.getEspecie() + "\n"
+                        + "Raça: " + a.getRaca() + "\n"
+                        + "Idade: " + a.getIdade());
+            }
         }
     }
 
-    //------------------Getters and Setters-----------------------
+    public void infoTotalTutores(ArrayList<Tutor> tutoresCadastrados, ArrayList<Pet> petsCadastrados) {
+        for (Tutor a : tutoresCadastrados) {
+            System.out.println("\n" + "///////////Informações do Tutor////////////" + "\n" +
+                    "Nome: " + a.getNome() + "\n" +
+                    "CPF: " + a.getCpf() + "\n" +
+                    "Endereço: " + a.getEndereco() + "\n" +
+                    "E-mail: " + a.getEmail() + "\n" +
+                    "Telefones: " + a.getTelefone());
+                for (Pet b : petsCadastrados) {
+                    if (b.getNome() == a.getPets().getNome()) {
+                        System.out.println("Pet: " + b.getNome() + "\n" + "///////////////////////////////////////" + "\n");
+                    }
+                }
+        }
+    }
 
-    
+    public String getNome() {
+        return nome;
+    }
 
-    public ArrayList<Pet> getPets() {
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(int cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public int getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(int telefone) {
+        this.telefone = telefone;
+    }
+
+    public Pet getPets() {
         return pets;
     }
 
-    public void setPets(ArrayList<Pet> pets) {
+    public void setPets(Pet pets) {
         this.pets = pets;
     }
 
-    
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

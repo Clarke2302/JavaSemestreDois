@@ -2,41 +2,29 @@ import java.util.ArrayList;
 
 public class Pessoa {
     
-    private String nomeCompleto, endereco, email;
+    private String nomeCompleto;
+    private String endereco;
+    private String email;
     private int cpf;
-    private ArrayList<Integer>telefone;
+    private int telefone;
 
-    public Pessoa(String nomeCompleto, String endereco, String email, int cpf, ArrayList<Integer>telefone){
-        
-        this.nomeCompleto=nomeCompleto;
-        this.endereco=endereco;
-        this.email=email;
-        this.cpf=cpf;
-        this.telefone = new ArrayList<>();
-    }
-
-    //----------------Infos------------------
 
     public void info_pessoa(){
-        System.out.println("///////////Informações Pessoais////////////"+"\n"
-        +"Nome Completo: "+getNomeCompleto()+"\n"
-        +"CPF: "+getCpf()+"\n"
-        +"Endereço: "+getEndereco()+"\n"
-        +"///////////////////////////////////////"+"\n");
+        System.out.println("\n"+"///////////Informações da Pessoa////////////"+"\n"+
+        "Nome: " + getNomeCompleto()+"\n"+
+        "CPF: " + getCpf()+"\n"+
+        "Endereço: " + getEndereco());
     }
 
-    public void info_contato(ArrayList<Integer> telefone){
-        System.out.println("///////////Contato Pessoal////////////"+"\n"
-        +"E-mail: "+getEmail()+"\n");
-
-        for(Integer tel : telefone){
-        System.out.print("Telefone: "+getTelefone()+"\n");
+    public void info_contato(ArrayList<Integer> telefonesPessoa){
+        System.out.println("E-mail: " + getEmail());
+        for(Integer tel : telefonesPessoa ) {
+            while(tel!=null) {
+                System.out.println("Telefones: " + getTelefone(telefonesPessoa)
+                        + "\n" + "///////////////////////////////////////");
+            }
         }
-
-        System.out.print("///////////////////////////////////////"+"\n");
     }
-
-    //-----------Getters and Setters----------------
 
     public String getNomeCompleto() {
         return nomeCompleto;
@@ -70,17 +58,12 @@ public class Pessoa {
         this.cpf = cpf;
     }
 
-    public ArrayList<Integer> getTelefone() {
+    public int getTelefone(ArrayList<Integer> telefonesPessoa) {
+        telefonesPessoa.add(telefone);
         return telefone;
     }
 
-    public void setTelefone(ArrayList<Integer> telefone, int numeroDeTelefone) {
-        telefone.add(numeroDeTelefone);
-
+    public void setTelefone(int telefone) {
         this.telefone = telefone;
     }
-    
-    
-
-    }
-
+}
