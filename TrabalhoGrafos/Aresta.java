@@ -3,9 +3,9 @@ public class Aresta {
 
     private Vertice cidade1; //cidade origem
     private Vertice cidade2; //cidade destino
-    private float distancia; //distancia entre elas
+    private int distancia; //distancia entre elas
 
-    public Aresta(Vertice cidade1,Vertice cidade2,float distancia){
+    public Aresta(Vertice cidade1,Vertice cidade2,int distancia){
         this.cidade1=cidade1;
         this.cidade2=cidade2;
         this.distancia=distancia;
@@ -26,7 +26,7 @@ public class Aresta {
         return cidade2;
     }
 
-    public float getDistancia() {
+    public int getDistancia() {
         return distancia;
     }
 }
