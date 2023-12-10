@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Grafo {
@@ -6,10 +7,21 @@ public class Grafo {
     private ArrayList<Vertice> cidades; //vertice
     private ArrayList<Aresta> conexoes; //aresta
 
+    public Grafo(){
+        this.cidades = new ArrayList<>();
+        this.conexoes = new ArrayList<>();
+    }
+
     public void infoCidades(){
         System.out.println("\n"+"///////////Informações das Cidades///////////");
+        ArrayList<String> cityNames = new ArrayList<>();
         for(Vertice c : cidades){
-        System.out.println(c.getNomeCidade());
+        cityNames.add(c.getNomeCidade());
+        }
+        Collections.sort(cityNames);
+
+        for (String nomeCidade : cityNames) {
+            System.out.println("-> " + nomeCidade);
         }
         System.out.println("\n"+"////////////////////////////////////////////");
     }
@@ -17,7 +29,9 @@ public class Grafo {
     public void infoConexoes(){
         System.out.println("\n"+"///////////Informações das Conexões///////////");
         for(Aresta a : conexoes){
-        System.out.println(a.getCidade1().getNomeCidade()+" <-> "+a.getCidade2().getNomeCidade()+" : "+a.getDistancia()+" km.");
+        System.out.println(a.getCidade1().getNomeCidade()+
+        " <-> "
+        +a.getCidade2().getNomeCidade()+" : "+a.getDistancia()+" km.");
         }
         System.out.println("\n"+"////////////////////////////////////////////");
     }
@@ -25,19 +39,21 @@ public class Grafo {
     public void cadastraCidade(Scanner tec){
         System.out.println("\n"+"///////////Cadastramento de Cidades///////////"+"\n");
         System.out.println("Digite um nome para essa cidade: ");
-        String nomeCidade = tec.nextLine().toLowerCase();
+        String nomeCidade = tec.nextLine();
 
-        for(Vertice name : cidades)
-        if(name.getNomeCidade().toLowerCase() == nomeCidade){
-            System.out.println("\n"+"Essa cidade já está cadastrada!");
-        }else{
+        for(Vertice name : cidades){
+            if(name.getNomeCidade().equalsIgnoreCase(nomeCidade)){
+                System.out.println("\n"+"Essa cidade já está cadastrada!");
+                return;
+            }
+        }
             Vertice bibi = new Vertice(nomeCidade);
             cidades.add(bibi);
             System.out.println("\n"+"Cidade cadastrada com sucesso!");
-        }
-
+        
     }
-    public void cadastraConexao(Scanner tec, int distancia){
+
+    public void cadastraConexao(Scanner tec){
         System.out.println("\n"+"///////////Cadastramento de Conexões///////////"+"\n");
         System.out.println("Digite o nome da primeira cidade: ");
         String nomeCidade1 = tec.nextLine().toLowerCase();
@@ -45,15 +61,18 @@ public class Grafo {
         System.out.println("Digite o nome da segunda cidade: ");
         String nomeCidade2 = tec.nextLine().toLowerCase();
 
+        System.out.print("Digite a distância entre as cidades: ");
+        int distancia = tec.nextInt();
+
         Vertice cidade1 = null;
         Vertice cidade2 = null;
 
         for(Vertice name : cidades){
-            if(name.getNomeCidade().toLowerCase() == nomeCidade1 ){
+            if(name.getNomeCidade().equalsIgnoreCase(nomeCidade1) ){
                 
                 cidade1 = name;
             }
-            if(name.getNomeCidade().toLowerCase() == nomeCidade2){
+            if(name.getNomeCidade().equals(nomeCidade2)){
 
                 cidade2 = name;
             }else {
