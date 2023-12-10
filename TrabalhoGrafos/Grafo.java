@@ -37,7 +37,7 @@ public class Grafo {
         }
 
     }
-    public void cadastraConexao(ArrayList<Aresta> conexoes, Scanner tec){
+    public void cadastraConexao(ArrayList<Aresta> conexoes, Scanner tec, int distancia){
         System.out.println("\n"+"///////////Cadastramento de Conexões///////////"+"\n");
         System.out.println("Digite o nome da primeira cidade: ");
         String nomeCidade1 = tec.nextLine().toLowerCase();
@@ -45,19 +45,25 @@ public class Grafo {
         System.out.println("Digite o nome da segunda cidade: ");
         String nomeCidade2 = tec.nextLine().toLowerCase();
 
-        for(Vertice name : cidades)
-        if(name.getNomeCidade().toLowerCase() == nomeCidade1 && name.getNomeCidade().toLowerCase() == nomeCidade2){
-            Vertice city1 = new Vertice(nomeCidade1);
-            cidades.add(city1);
-            Vertice city2 = new Vertice(nomeCidade1);
-            cidades.add(city2);
-            System.out.println("\n"+"Conexão cadastrada com sucesso!");
+        Vertice cidade1 = null;
+        Vertice cidade2 = null;
 
-        }else{
-            System.out.println("\n"+"Alguma das cidades digitadas não consta no cadastro! A cadastre e depois volte à essa opção.");
-            
+        for(Vertice name : cidades){
+            if(name.getNomeCidade().toLowerCase() == nomeCidade1 ){
+                
+                cidade1 = name;
+            }
+            if(name.getNomeCidade().toLowerCase() == nomeCidade2){
+
+                cidade2 = name;
+            }else {
+            System.out.println("\n"+"Alguma das cidades digitadas não constam no cadastro! A cadastre e depois volte à essa opção.");
         }
-
     }
-    
+        Aresta conexaoNova = new Aresta(cidade1,cidade2,distancia);
+        conexoes.add(conexaoNova);
+            
+        System.out.println("\n"+"Conexão cadastrada com sucesso!");
+    }
 }
+    
