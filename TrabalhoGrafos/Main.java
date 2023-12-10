@@ -20,19 +20,10 @@ public class Main {
 
             switch (opcao) {
                 case 1:
-                    System.out.print("Digite o nome da cidade: ");
-                    String nomeCidade = scanner.nextLine();
                     grafo.cadastraCidade(scanner);
                     break;
                 case 2:
-                    System.out.print("Digite a cidade de origem: ");
-                    String cidadeOrigem = scanner.nextLine();
-                    System.out.print("Digite a cidade de destino: ");
-                    String cidadeDestino = scanner.nextLine();
-                    System.out.print("Digite a distância entre as cidades: ");
-                    int distancia = scanner.nextInt();
-                    scanner.nextLine();
-                    grafo.cadastraConexao(scanner, distancia);
+                    grafo.cadastraConexao(scanner);
                     break;
                 case 3:
                     grafo.infoCidades();
