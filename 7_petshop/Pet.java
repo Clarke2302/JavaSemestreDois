@@ -8,6 +8,8 @@ public class Pet{
     private int idade;
     private Tutor tutor;
 
+    ArrayList<Tutor> meuDono = new ArrayList<>();
+
     public Pet(String nome, String especie, String raca, int idade, Tutor tutor){
         this.nome=nome;
         this.especie=especie;
@@ -17,7 +19,7 @@ public class Pet{
 
     }
 
-    public void info_pet(ArrayList<Tutor> meuDono){
+    public void info_pet(){
         System.out.println("\n"+"///////////Informações do Pet////////////"+"\n"
                             +"Nome: "+getNome()+"\n"
                             +"Espécie: "+getEspecie()+"\n"
@@ -31,7 +33,7 @@ public class Pet{
             }
     }
 
-    public void info_tutores(ArrayList<Tutor> meuDono){
+    public void info_tutores(){
         for(Tutor a : meuDono){
             if(a.getNome() == getTutor().getNome()){
             System.out.println("\n"+"///////////Informações do Tutor////////////"+"\n"
@@ -45,19 +47,9 @@ public class Pet{
         }
     }
 
-    public void infoTotalPets(ArrayList<Pet> petsCadastrados, ArrayList<Tutor> tutoresCadastrados){
-        for(Pet a : petsCadastrados) {
-            System.out.println("\n" + "///////////Informações do Pet////////////" + "\n"
-                    + "Nome: " + a.getNome() + "\n"
-                    + "Espécie: " + a.getEspecie() + "\n"
-                    + "Raça: " + a.getRaca() + "\n"
-                    + "Idade: " + a.getIdade());
-                for(Tutor b : tutoresCadastrados) {
-                    if (b.getNome() == a.getTutor().getNome()) {
-                        System.out.print("Dono: "+ b.getNome() + "\n" + "///////////////////////////////////////" + "\n");
-                    }
-                }
-        }
+    public void adicionarDono(Tutor tutorA){
+        meuDono.add(tutorA);
+        tutorA.meusPets.add(this);
     }
 
     public String getNome() {

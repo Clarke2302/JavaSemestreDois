@@ -10,56 +10,48 @@ public class Tutor extends Pessoa{
 
     private Pet pets;
 
+    ArrayList<Pet> meusPets = new ArrayList<>();
+
+
     Tutor(String nome, int cpf, String endereco, String email, int telefone, Pet pets) {
-      this.nome = nome;
-      this.cpf = cpf;
-      this.email=email;
-      this.endereco = endereco;
-      this.telefone = telefone;
-      this.pets=pets;
+    this.nome = nome;
+    this.cpf = cpf;
+    this.email=email;
+    this.endereco = endereco;
+    this.telefone = telefone;
+    this.pets=pets;
     }
 
-    public void info_tutor(ArrayList<Pet> meuPet,ArrayList<Integer> telefonesPessoa){
+    public void info_tutor(){
         System.out.println("\n"+"///////////Informações do Tutor////////////"+"\n"+
-                "Nome: " + getNomeCompleto()+"\n"+
+                "Nome: " + getNome()+"\n"+
                 "CPF: " + getCpf()+"\n"+
                 "Endereço: " + getEndereco()+"\n"+
                 "E-mail: " + getEmail()+"\n"+
                 "Telefones: " + getTelefone());
 
-        for(Pet a : meuPet) {
-            if (a.getNome() == getPets().getNome()) {
+        for(Pet a : meusPets) {
+            
                 System.out.println("Pet: "+ a.getNome() + "\n" + "///////////////////////////////////////" + "\n");
-            }
+            
         }
     }
 
-    public void info_pets(ArrayList<Pet> meuPet){
-        for(Pet a : meuPet) {
-            if (a.getNome() == getPets().getNome()) {
+    public void info_pets(){
+        for(Pet a : meusPets) {
+        
                 System.out.println("\n" + "///////////Informações do Pet////////////" + "\n"
                         + "Nome: " + a.getNome() + "\n"
                         + "Espécie: " + a.getEspecie() + "\n"
                         + "Raça: " + a.getRaca() + "\n"
                         + "Idade: " + a.getIdade());
-            }
+            
         }
     }
 
-    public void infoTotalTutores(ArrayList<Tutor> tutoresCadastrados, ArrayList<Pet> petsCadastrados) {
-        for (Tutor a : tutoresCadastrados) {
-            System.out.println("\n" + "///////////Informações do Tutor////////////" + "\n" +
-                    "Nome: " + a.getNome() + "\n" +
-                    "CPF: " + a.getCpf() + "\n" +
-                    "Endereço: " + a.getEndereco() + "\n" +
-                    "E-mail: " + a.getEmail() + "\n" +
-                    "Telefones: " + a.getTelefone());
-                for (Pet b : petsCadastrados) {
-                    if (b.getNome() == a.getPets().getNome()) {
-                        System.out.println("Pet: " + b.getNome() + "\n" + "///////////////////////////////////////" + "\n");
-                    }
-                }
-        }
+    public void adicionarPet(Pet pet) {
+        meusPets.add(pet);
+        pet.meuDono.add(this);
     }
 
     public String getNome() {
@@ -86,7 +78,7 @@ public class Tutor extends Pessoa{
         this.endereco = endereco;
     }
 
-    public int getTelefone() {
+    public  int getTelefone() {
         return telefone;
     }
 

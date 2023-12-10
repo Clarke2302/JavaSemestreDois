@@ -8,6 +8,8 @@ public class Pessoa {
     private int cpf;
     private int telefone;
 
+    ArrayList<Integer> telefonesPessoa = new ArrayList<>();
+
 
     public void info_pessoa(){
         System.out.println("\n"+"///////////Informações da Pessoa////////////"+"\n"+
@@ -16,15 +18,12 @@ public class Pessoa {
         "Endereço: " + getEndereco());
     }
 
-    public void info_contato(ArrayList<Integer> telefonesPessoa){
+    public void info_contato(){
         System.out.println("E-mail: " + getEmail());
-        for(Integer tel : telefonesPessoa ) {
-            while(tel!=null) {
-                System.out.println("Telefones: " + getTelefone(telefonesPessoa)
+                System.out.println("Telefones: " + getTelefone()
                         + "\n" + "///////////////////////////////////////");
             }
-        }
-    }
+        
 
     public String getNomeCompleto() {
         return nomeCompleto;
@@ -58,12 +57,21 @@ public class Pessoa {
         this.cpf = cpf;
     }
 
-    public int getTelefone(ArrayList<Integer> telefonesPessoa) {
-        telefonesPessoa.add(telefone);
-        return telefone;
+    public int getTelefone() {
+        for(Integer tel : telefonesPessoa ){
+            System.out.println("Telefones: ");
+            while(tel!=null) {
+
+                return tel;
+            }
+            System.out.println("\n" + "///////////////////////////////////////");
+        }
+        return cpf;
+    
     }
 
-    public void setTelefone(int telefone) {
-        this.telefone = telefone;
+    public void adicionarTelefone(){
+        telefonesPessoa.add(telefone);
     }
+
 }
