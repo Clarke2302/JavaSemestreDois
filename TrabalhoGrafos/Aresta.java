@@ -1,6 +1,6 @@
 public class Aresta {
     //conexões
-    
+
     private Vertice cidade1; //cidade origem
     private Vertice cidade2; //cidade destino
     private float distancia; //distancia entre elas
@@ -12,7 +12,7 @@ public class Aresta {
     }
 
     public void infoAresta(){
-        System.out.println("///////////Informações das Conexões///////////"+"\n"+
+        System.out.println("\n"+"///////////Informações das Conexões///////////"+"\n"+
                             "Cidade 1: "+getCidade1()+"\n"+
                             "Cidade 2: "+getCidade2()+"\n"+
                             "Distância: "+getDistancia()+"\n");
