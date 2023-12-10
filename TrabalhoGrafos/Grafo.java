@@ -6,7 +6,7 @@ public class Grafo {
     private ArrayList<Vertice> cidades; //vertice
     private ArrayList<Aresta> conexoes; //aresta
 
-    public void infoCidades(ArrayList<Vertice> cidades){
+    public void infoCidades(){
         System.out.println("\n"+"///////////Informações das Cidades///////////");
         for(Vertice c : cidades){
         System.out.println(c.getNomeCidade());
@@ -14,7 +14,7 @@ public class Grafo {
         System.out.println("\n"+"////////////////////////////////////////////");
     }
     
-    public void infoConexoes(ArrayList<Aresta> conexoes){
+    public void infoConexoes(){
         System.out.println("\n"+"///////////Informações das Conexões///////////");
         for(Aresta a : conexoes){
         System.out.println(a.getCidade1().getNomeCidade()+" <-> "+a.getCidade2().getNomeCidade()+" : "+a.getDistancia()+" km.");
@@ -22,7 +22,7 @@ public class Grafo {
         System.out.println("\n"+"////////////////////////////////////////////");
     }
 
-    public void cadastraCidade(ArrayList<Vertice> cidades, Scanner tec){
+    public void cadastraCidade(Scanner tec){
         System.out.println("\n"+"///////////Cadastramento de Cidades///////////"+"\n");
         System.out.println("Digite um nome para essa cidade: ");
         String nomeCidade = tec.nextLine().toLowerCase();
@@ -37,7 +37,7 @@ public class Grafo {
         }
 
     }
-    public void cadastraConexao(ArrayList<Aresta> conexoes, Scanner tec, int distancia){
+    public void cadastraConexao(Scanner tec, int distancia){
         System.out.println("\n"+"///////////Cadastramento de Conexões///////////"+"\n");
         System.out.println("Digite o nome da primeira cidade: ");
         String nomeCidade1 = tec.nextLine().toLowerCase();
