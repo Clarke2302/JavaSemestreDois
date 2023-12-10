@@ -13,11 +13,7 @@ public class Vertice {
         this.nomeCidade=nomeCidade;
     }
 
-    public void infoVizinhos(ArrayList<Aresta> conexoes, String Cidade){
-    
-}
-
-    public void infoConexoes(ArrayList<Aresta> conexoes,String Cidade){
+    public void infoVizinhas(String Cidade){
         Vertice origem = null;
         for (Vertice vertice : vizinhanca) {
             if (vertice.getNomeCidade().equalsIgnoreCase(Cidade)) {
