@@ -3,47 +3,67 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Grafo grafo = new Grafo();
-        Vertice ver = new Vertice(null);
-        Scanner scanner = new Scanner(System.in);
 
-        int opcao;
-        do {
-            System.out.println("\n1. Cadastrar cidade");
-            System.out.println("2. Cadastrar conexão");
-            System.out.println("3. Listar cidades");
-            System.out.println("4. Listar conexões");
-            System.out.println("5. Listar cidades vizinhas");
-            System.out.println("0. Sair");
-            System.out.print("Escolha uma opção: ");
-            opcao = scanner.nextInt();
-            scanner.nextLine();
+        Scanner tec = new Scanner(System.in);
 
-            switch (opcao) {
-                case 1:
-                    grafo.cadastraCidade(scanner);
-                    break;
-                case 2:
-                    grafo.cadastraConexao(scanner);
-                    break;
-                case 3:
-                    grafo.infoCidades();
-                    break;
-                case 4:
-                    grafo.infoConexoes();
-                    break;
-                case 5:
-                    System.out.print("Digite o nome da cidade: ");
-                    String cidade = scanner.nextLine();
-                    ver.infoVizinhas(cidade);
-                    break;
-                case 0:
-                    System.out.println("Encerrando o programa.");
-                    break;
-                default:
-                    System.out.println("Opção inválida. Tente novamente.");
+        int tecla = 0;
+
+        while(tecla != 7){
+
+            mostrarMenu();
+            tecla = tec.nextInt();
+
+            if(tecla==1){
+                
+                grafo.cadastraCidade(tec);
             }
-        } while (opcao != 0);
+            if(tecla==2){
+                
+                grafo.cadastraConexoes(tec);
+            }
+            if(tecla==3){
+                grafo.infoCidades();
+                
+            }
+            if(tecla==4){
+                grafo.infoConexoes();
+                
+            }
+            if(tecla==5){
+                grafo.infoCidadesVizinhas(tec);
+                
+            }
+            if(tecla == 6){
+                //
+                Vertice ver = new Vertice("Toronto");
+                Vertice ver2  = new Vertice("Alaska");
+                Aresta ar = new Aresta(ver, ver2, 1200);
+                //
+                ar.infoAresta(ar);
+            }
 
-        scanner.close();
+            if(tecla==7){
+                System.out.println("\n"+"Você está saindo do sistema, volte sempre ! :) ");
+                
+            }
+
+        }
+        tec.close();
+    }
+
+    //Menu Função
+
+    public static void mostrarMenu(){
+        System.out.println("\n"
+        +"--------------Bem Vindo ao Sistema-----------------"+"\n"
+        +"1 - Cadastro de Cidades: "+"\n"
+        +"2 - Cadastro de Conexões: "+"\n"
+        +"3 - Mostrar Cidades: "+"\n"
+        +"4 - Mostrar Conexões: "+"\n"
+        +"5 - Mostrar Cidades Vizinhas: "+"\n"
+        +"6 - Info Aresta: "+"\n"
+        +"7 - Sair do Sistema: "+"\n"
+        +"---------------------------------------------------"+"\n");
+        System.out.printf("Digite: ");
     }
 }
