@@ -16,17 +16,18 @@ public class Grafo {
     public void infoCidades(){
         System.out.println("\n"+"///////////Informações das Cidades///////////");
         
-        ArrayList<String> nomeCidades = new ArrayList<>();
+        ArrayList<String> nomeCidades = new ArrayList<>(); //cria arraylist para colocar somente os nomes das cidades
         
-        for(Vertice c : cidades){
+        for(Vertice c : cidades){ //insere todos os nomes das cidades cadastradas da arraylist cidades em nomeCidades
         nomeCidades.add(c.getNomeCidade());
         }
         
-        Collections.sort(nomeCidades);
+        Collections.sort(nomeCidades); //coloca os nomes em ordem alfabética
 
         for (String nomes : nomeCidades) {
             System.out.println("--> " + nomes);
-        }
+        } //adiciona uma setinha antes de cada cidade
+
         System.out.println("\n"+"////////////////////////////////////////////");
     }
     
@@ -47,7 +48,7 @@ public class Grafo {
         String nomeCidade = tec.nextLine();
 
         for(Vertice name : cidades){
-            if(name.getNomeCidade().equalsIgnoreCase(nomeCidade)){
+            if(name.getNomeCidade().equalsIgnoreCase(nomeCidade)){ //funciona como um Lower case+Upper Case (não diferencia maiúsculas de minúsculas)
                 System.out.println("\n"+"Essa cidade já está cadastrada!");
                 return;
             }
@@ -129,7 +130,14 @@ public class Grafo {
 
     System.out.println("\n"+"Cidades vizinhas ordenadas por menor distância:");
         for (Aresta conexao : conexoesVizinhas) {
-            Vertice vizinho = conexao.getCidade1().equals(origem) ? conexao.getCidade2() : conexao.getCidade1();
+            
+            Vertice vizinho;
+            if (conexao.getCidade1().equals(origem)) {
+                vizinho = conexao.getCidade2();
+            } else {
+                vizinho = conexao.getCidade1();
+            }
+            
             int distancia = conexao.getDistancia();
             System.out.println("- " + vizinho.getNomeCidade() + ": " + distancia + " km de distância");
         }
@@ -137,6 +145,7 @@ public class Grafo {
 
     private void ordenarConexoesPorDistancia(ArrayList<Aresta> conexoes) {
         conexoes.sort(Comparator.comparingInt(Aresta::getDistancia));
+        // especifica que a ordenação deve ser feita com base no valor retornado pelo método getDistancia
     }
 
 
