@@ -1,5 +1,5 @@
 public class Vertice {
-    //Cidades Vizinhas
+    //Cidades
 
     String nomeCidade;
 
