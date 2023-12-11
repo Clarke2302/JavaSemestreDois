@@ -15,7 +15,7 @@ public class Aresta {
         
     }
 
-    public void infoAresta(Aresta ab){
+    public void infoAresta(Aresta ab){ //info de arestas criadas na Main mas sem adicioná-las na arraylist
         System.out.println("\n"+"///////////Informações da Aresta///////////");
         
         System.out.println("Cidade 1: "+ab.getCidade1().getNomeCidade()+"\n"
