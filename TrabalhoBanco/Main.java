@@ -53,22 +53,22 @@ public class Main {
             if(tecla == 3){ //funciona
                 bb.criarConta(tec,pessoasCadastradas,bancosCadastrados,contasCorrentes,contasPoupancas,contas);
             }
-            if(tecla == 4){ //funciona
+            if(tecla == 4){ //funciona  --> saldo nao aparece
                 cc.info(contasCorrentes,pessoasCadastradas);
             }
-            if(tecla == 5){ //funciona
+            if(tecla == 5){ //funciona ---> saldo nao aparece
                 cp.info(contasPoupancas,pessoasCadastradas);
             }
-            if(tecla == 6){ //senha não funciona
+            if(tecla == 6){ //senha não funciona  ---> senha == null
                 cc.saque(tec);
             }
             if(tecla == 7){ //funciona
                 cc.deposito(tec);
             }
-            if(tecla == 8){
+            if(tecla == 8){   //----> senha == null
                 cp.saque(20,tec);
             }
-            if(tecla == 9){
+            if(tecla == 9){ //funciona
                 cp.deposito(400);
             }
             if(tecla == 10){

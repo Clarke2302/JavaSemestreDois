@@ -19,14 +19,14 @@ public class ContaPoupanca extends ContaBancaria{
     public void info(ArrayList<ContaPoupanca> contasPoupancas,ArrayList<Pessoa> pessoasCadastradas){
         for(Pessoa a : pessoasCadastradas){
             for(ContaPoupanca cp : contasPoupancas){
-            System.out.println("\n"+"==========Info Conta Poupanca=========="+"\n"
-            +"Titular da Conta: "+a.getNome()+" "+a.getSobrenome()+"\n"
-            +"Nome do Banco: "+cp.getBanco().getNomeBanco()+"\n"
-            +"Número da Conta: "+cp.getNumConta()+"\n"
-            +"Saldo: R$ "+cp.getSaldo()+"\n"
-            +"Rendimento: "+cp.getRendimento()+"%"+"\n"
-            +"Saques Mensais permitidos: "+cp.getSaquesMensais()+"\n"
-                                +"=======================================");
+                    System.out.println("\n" + "==========Info Conta Poupanca==========" + "\n"
+                            + "Titular da Conta: " + a.getNome() + " " + a.getSobrenome() + "\n"
+                            + "Nome do Banco: " + cp.getBanco().getNomeBanco() + "\n"
+                            + "Número da Conta: " + cp.getNumConta() + "\n"
+                            + "Saldo: R$ " + cp.getSaldo() + "\n"
+                            + "Rendimento: " + cp.getRendimento() + "%" + "\n"
+                            + "Saques Mensais permitidos: " + cp.getSaquesMensais() + "\n"
+                            + "=======================================");
             }
         }
     }
@@ -72,6 +72,7 @@ public class ContaPoupanca extends ContaBancaria{
             System.out.println("\n"+"Você não pode depositar um valor abaixo de R$ 10,00"+"\n"+"Digite um valor mínimo de R$ 10,00!");
         }else if(depositar>=10){
             saldo += depositar;
+            setSaldo(saldo);
             System.out.println("\n"+"Você depositou R$ "+depositar+" seu saldo agora é de R$ "+saldo);
         }
     }
@@ -83,6 +84,7 @@ public class ContaPoupanca extends ContaBancaria{
             System.out.println("\n"+"Você não pode depositar um valor abaixo de R$ 10,00"+"\n"+"Digite um valor mínimo de R$ 10,00!");
         }else if(depositar>=10){
             saldo += depositar;
+            setSaldo(saldo);
             System.out.println("\n"+"Você depositou R$ "+depositar+" seu saldo agora é de R$ "+saldo);
         }
     }

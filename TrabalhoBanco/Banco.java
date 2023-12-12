@@ -124,7 +124,7 @@ public class Banco {
 
     }
 
-    public void fecharConta(Scanner tec,ArrayList<ContaCorrente> contasCorrentes,ArrayList<ContaPoupanca> contasPoupancas ){
+    public void fecharConta(Scanner tec,ArrayList<ContaCorrente> contasCorrentes,ArrayList<ContaPoupanca> contasPoupancas){
         tec.nextLine();
         System.out.println("\n"+"Entramos no Sistema de Fechar uma Conta"+"\n"
         +"Escolha o tipo de conta que deseja fechar:"+"\n"
@@ -136,16 +136,25 @@ public class Banco {
         if(digite ==1 ){
             tec.nextLine();
 
-            System.out.println("Digite o número da conta: ");
-                int num = tec.nextInt();
+            System.out.println("Digite o nome do titular da conta: ");
+            String nomee = tec.nextLine();
 
-                System.out.println("Agora digite a senha da conta: ");
-                            String sen = tec.nextLine();
+            for(ContaCorrente ccc : contasCorrentes) {
+                if (ccc.getTitular().getNome().equalsIgnoreCase(nomee) || ccc.getTitular().getSobrenome().equalsIgnoreCase(nomee)) {
+                    System.out.println("Digite o número da conta: ");
+                    int num = tec.nextInt();
 
-            for(ContaCorrente cc: contasCorrentes){
-                if(cc.getNumConta() == num && cc.getSenha() == sen){
-                    
-                        
+                    if (ccc.getNumConta()== num) {
+
+                    System.out.println("Agora digite a senha da conta: ");
+                    String sen = tec.nextLine();
+
+                    if (ccc.getSenha() == sen) {
+                        System.out.println("Você tem certeza ");
+                    }
+                }
+            }
+
                 }else{
                     System.out.println("Sua senha ou número da conta estão incorretos!"+"\n"
                     +"Tente fechar a conta mais tarde!");
