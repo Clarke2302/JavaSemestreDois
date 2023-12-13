@@ -71,8 +71,8 @@ public class ContaPoupanca extends ContaBancaria{
         if(depositar<10){
             System.out.println("\n"+"Você não pode depositar um valor abaixo de R$ 10,00"+"\n"+"Digite um valor mínimo de R$ 10,00!");
         }else if(depositar>=10){
-            saldo += depositar;
-            setSaldo(saldo);
+            double novoSaldo = getSaldo() + depositar;
+            setSaldo(novoSaldo);
             System.out.println("\n"+"Você depositou R$ "+depositar+" seu saldo agora é de R$ "+saldo);
         }
     }
@@ -83,8 +83,8 @@ public class ContaPoupanca extends ContaBancaria{
         if(depositar<10){
             System.out.println("\n"+"Você não pode depositar um valor abaixo de R$ 10,00"+"\n"+"Digite um valor mínimo de R$ 10,00!");
         }else if(depositar>=10){
-            saldo += depositar;
-            setSaldo(saldo);
+            double novoSaldo = getSaldo() + depositar;
+            setSaldo(novoSaldo);
             System.out.println("\n"+"Você depositou R$ "+depositar+" seu saldo agora é de R$ "+saldo);
         }
     }
