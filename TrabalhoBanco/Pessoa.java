@@ -30,12 +30,12 @@ public class Pessoa {
     }
 
     public void infoContas(String nomePessoa,ArrayList<Pessoa> pessoasCadastradas,ArrayList<ContaBancaria> contas){
-        for(ContaBancaria cb : contasBancarias){
+        for(ContaBancaria cb : contas){
             for(Pessoa a : pessoasCadastradas){
                     if(a.getNome().equals(nomePessoa)&& cb.getTitular().equals(a)){
                     System.out.println("\n"+"==========Info Contas Bancárias Pessoa=========="+"\n"
-                    +"Titular da Conta: "+cb.getTitular()+"\n"
-                    +"Nome do Banco: "+cb.getBanco()+"\n"
+                    +"Titular da Conta: "+cb.getTitular().getNome()+"\n"
+                    +"Nome do Banco: "+cb.getBanco().getNomeBanco()+"\n"
                     +"Número da Conta: "+cb.getNumConta()+"\n"
                     +"Saldo: R$ "+cb.getSaldo()+"\n"
                     +"=======================================");
