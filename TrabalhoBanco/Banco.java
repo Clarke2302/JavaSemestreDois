@@ -149,41 +149,59 @@ public class Banco {
                     System.out.println("Agora digite a senha da conta: ");
                     String sen = tec.nextLine();
 
-                    if (ccc.getSenha() == sen) {
-                        System.out.println("Você tem certeza ");
+                        if (ccc.getSenha() == sen) {
+                            System.out.println("Você tem certeza que deseja fechar essa conta?"+"\n"+"Se sim digite 1:"+"\n" );
+                            int digita = tec.nextInt();
+                            if(digita == 1){
+                                contasCorrentes.remove(ccc);
+                                System.out.println("\n"+"Conta Fechada!");
+                            }
+                            
+                        }else{
+                        System.out.println("Sua senha ou número da conta estão incorretos!"+"\n"
+                        +"Tente fechar a conta mais tarde!");
+                        break;
+                        }
                     }
-                }
-            }
-
-                }else{
-                    System.out.println("Sua senha ou número da conta estão incorretos!"+"\n"
-                    +"Tente fechar a conta mais tarde!");
-                    break;
                 }
             }
             
         }
-        if(digite==2 ){
-            tec.nextLine();
 
-            System.out.println("Digite o número da conta: ");
-                int num = tec.nextInt();
+            if(digite==2 ){
+                tec.nextLine();
 
-                System.out.println("Agora digite a senha da conta: ");
-                            String sen = tec.nextLine();
+                System.out.println("Digite o nome do titular da conta: ");
+                String nomee = tec.nextLine();
 
-            for(ContaPoupanca cc: contasPoupancas){
-                if(cc.getNumConta() == num && cc.getSenha() == sen){
+                for(ContaPoupanca ccc : contasPoupancas) {
+                    if (ccc.getTitular().getNome().equalsIgnoreCase(nomee) || ccc.getTitular().getSobrenome().equalsIgnoreCase(nomee)) {
+                        System.out.println("Digite o número da conta: ");
+                        int num = tec.nextInt();
 
-                        
-                }else{
-                    System.out.println("Sua senha ou número da conta estão incorretos!"+"\n"
-                    +"Tente fechar a conta mais tarde!");
-                    break;
+                        if (ccc.getNumConta()== num) {
+
+                        System.out.println("Agora digite a senha da conta: ");
+                        String sen = tec.nextLine();
+
+                            if (ccc.getSenha() == sen) {
+                                System.out.println("Você tem certeza que deseja fechar essa conta?"+"\n"+"Se sim digite 1:"+"\n" );
+                                int digita = tec.nextInt();
+                                if(digita == 1){
+                                    contasCorrentes.remove(ccc);
+                                    System.out.println("\n"+"Conta Fechada!");
+                                }
+                                
+                            }else{
+                            System.out.println("Sua senha ou número da conta estão incorretos!"+"\n"
+                            +"Tente fechar a conta mais tarde!");
+                            break;
+                    }
                 }
             }
         }
     }
+}
 
     //Getters and Setters
 
