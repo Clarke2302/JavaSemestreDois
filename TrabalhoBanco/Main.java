@@ -44,13 +44,13 @@ public class Main {
         System.out.printf("Digite: ");
         tecla = tec.nextInt();
 
-            if(tecla == 1){ //funciona
+            if(tecla == 1){
                 cadastraBanco(tec, bancosCadastrados);
             }
-            if(tecla ==2){ //funciona
+            if(tecla ==2){
                 cadastraPessoa(tec,pessoasCadastradas);
             }
-            if(tecla == 3){ //funciona
+            if(tecla == 3){
                 bb.criarConta(tec,pessoasCadastradas,bancosCadastrados,contasCorrentes,contasPoupancas,contas);
             }
             if(tecla == 4){ //funciona  --> saldo nao aparece
@@ -62,22 +62,22 @@ public class Main {
             if(tecla == 6){ //senha não funciona  ---> senha == null
                 cc.saque(tec);
             }
-            if(tecla == 7){ //funciona
+            if(tecla == 7){
                 cc.deposito(tec);
             }
             if(tecla == 8){   //----> senha == null
                 cp.saque(20,tec);
             }
-            if(tecla == 9){ //funciona
+            if(tecla == 9){
                 cp.deposito(400);
             }
             if(tecla == 10){
-                vi.info(pessoasCadastradas); //funciona
+                vi.info(pessoasCadastradas);
             }
             if(tecla == 11){
-                vi.infoContas("Giovana", pessoasCadastradas,contas);
+                vi.infoContas("Giovani", pessoasCadastradas,contas);
             }
-            if(tecla == 12){ //funciona
+            if(tecla == 12){
                 bb.info(bancosCadastrados);
             }
             if(tecla == 13){
