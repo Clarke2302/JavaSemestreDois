@@ -31,8 +31,8 @@ public class Main {
         +"5 - Info Conta Poupanca: "+"\n"
         +"6 - Realizar Saque na Conta Corrente: "+"\n"
         +"7 - Realizar Depósito na Conta Corrente: "+"\n"
-        +"8 - Realizar Saque na Conta Poupanca:"+"\n"
-        +"9 - Realizar Depósito na Conta Poupanca:"+"\n"
+        +"8 - Realizar Saque (automático) na Conta Poupanca:"+"\n"
+        +"9 - Realizar Depósito (automático) na Conta Poupanca:"+"\n"
         +"10 - Info Pessoas: "+"\n"
         +"11 - Info Contas Pessoa: "+"\n"
         +"12 - Info Banco: "+"\n"
@@ -60,13 +60,13 @@ public class Main {
                 cp.info(contasPoupancas,pessoasCadastradas);
             }
             if(tecla == 6){ //senha não funciona  ---> senha == null
-                cc.saque(tec);
+                cc.saque(tec,contas);
             }
             if(tecla == 7){
-                cc.deposito(tec);
+                cc.deposito(tec,contas);
             }
             if(tecla == 8){   //----> senha == null
-                cp.saque(20,tec);
+                cp.saque(20,tec,contas,1154);
             }
             if(tecla == 9){
                 cp.deposito(400);
