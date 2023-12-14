@@ -6,7 +6,7 @@ public abstract class ContaBancaria {
     private Pessoa titular;
     private Banco banco;
     private int numConta;
-    double saldo;
+    double saldo = 0 ;
     private String senha;
 
     public ContaBancaria(Pessoa titular, Banco banco, int numConta, double saldo, String senha){
@@ -24,10 +24,10 @@ public abstract class ContaBancaria {
     public void saque(Scanner tec,ArrayList<ContaBancaria> contas){
         System.out.println("\n"+":Menu Saque:");
 
-        for(ContaBancaria cb : contas){
+        System.out.println("Digite o número da conta: ");
+        int num = tec.nextInt();
 
-            System.out.println("Digite o número da conta: ");
-            int num = tec.nextInt();
+        for(ContaBancaria cb : contas){
 
             if(cb.getNumConta() == num){
 
@@ -39,9 +39,9 @@ public abstract class ContaBancaria {
                     if(sacar>cb.getSaldo()){
                         System.out.println("\n"+"Seu saldo é insuficiente para essa retirada!"+"\n"+"Digite um valor menor!");
                     }else if(cb.getSaldo()>sacar){
-                        double novoSaldo = sacar - saldo;
+                        double novoSaldo = cb.getSaldo()-sacar;
                         cb.setSaldo(novoSaldo);
-                        System.out.println("\n"+"Ok, tudo certo com o saque!"+"\n"+"Você sacou R$"+sacar+" seu saldo agora é de R$ "+saldo);
+                
                     }
                 }
             }
@@ -63,9 +63,9 @@ public abstract class ContaBancaria {
                     if(sacar>cb.getSaldo()){
                         System.out.println("\n"+"Seu saldo é insuficiente para essa retirada!"+"\n"+"Digite um valor menor!");
                     }else if(cb.getSaldo()>sacar){
-                        double novoSaldo = sacar - saldo;
+                        double novoSaldo = cb.getSaldo()-sacar;
                         cb.setSaldo(novoSaldo);
-                        System.out.println("\n"+"Ok, tudo certo com o saque!"+"\n"+"Você sacou R$"+sacar+" seu saldo agora é de R$ "+saldo);
+                    
                     }
                 }
             }
@@ -74,11 +74,12 @@ public abstract class ContaBancaria {
     //-------------Depositar---------------
     public void deposito(Scanner tec,ArrayList<ContaBancaria> contas){
         System.out.println("\n"+":Menu Depósito:");
+
+        System.out.println("Digite o número da conta: ");
+            int num = tec.nextInt();
+            
         
         for(ContaBancaria cb : contas){
-
-            System.out.println("Digite o número da conta: ");
-            int num = tec.nextInt();
             
             if(cb.getNumConta() == num){
 
@@ -91,7 +92,7 @@ public abstract class ContaBancaria {
                     
                     double novoSaldo =saldo + depositar;
                     cb.setSaldo(novoSaldo);
-                    System.out.println("\n"+"Você depositou R$ "+depositar+" seu saldo agora é de R$ "+saldo);
+                
                 }
             }
         }
@@ -109,17 +110,17 @@ public abstract class ContaBancaria {
                 }else if(depositar>=10){
                     double novoSaldo =saldo + depositar;
                     cb.setSaldo(novoSaldo);
-                    System.out.println("\n"+"Você depositou R$ "+depositar+" seu saldo agora é de R$ "+saldo);
+                
                 }
             }
         }
     }
     //----------------Verificar Senha-------------------
     public boolean verificaSenha(Scanner tec,ArrayList<ContaBancaria> contas){
+        System.out.println("\n"+"Digite a sua senha: ");
+        String suaSenha = tec.next();
+        
         for(ContaBancaria cb : contas){
-
-            System.out.println("\n"+"Digite a sua senha: ");
-            String suaSenha = tec.next();
             
             if(cb.getSenha().equalsIgnoreCase(suaSenha)){
                 return true;

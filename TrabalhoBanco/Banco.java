@@ -53,10 +53,14 @@ public class Banco {
             tec.nextLine(); //buffer
         System.out.println("Digite o nome do titular: ");
         String nomeTit = tec.nextLine();
+
             for(Pessoa m : pessoasCadastradas){
-                if(m.getNome().equalsIgnoreCase(nomeTit) || m.getSobrenome().equalsIgnoreCase(nomeTit)){
+                        String nomeCompleto = m.getNome()+" "+m.getSobrenome();
+
+                if(nomeCompleto.equalsIgnoreCase(nomeTit)){
                     System.out.println("Agora digite o nome do Banco dessa pessoa: ");
                     String nomeBanco = tec.nextLine();
+                    
                     for(Banco i : bancosCadastrados){
                         if(i.getNomeBanco().equalsIgnoreCase(nomeBanco)){
 
@@ -68,12 +72,14 @@ public class Banco {
                             System.out.println("Digite uma senha para essa conta:");
                             String senh = tec.nextLine();
 
-                            ContaCorrente abo = new ContaCorrente(m,i,numero,0,senh,1.50);
+                            ContaCorrente abo = new ContaCorrente(m,i,numero,1,senh,1.50);
                             contas.add(abo);
                             contasCorrentes.add(abo);
 
                             System.out.println("\n"+"Conta Corrente criada!");
+
                             break;
+
                         }else{
                             System.out.println("\n"+"Não encontramos esse banco no sistema!");
                         }
@@ -88,8 +94,11 @@ public class Banco {
         if(escolha == 2){
             System.out.println("Digite o nome do titular: ");
             String nomeTit = tec.nextLine();
+
             for(Pessoa m : pessoasCadastradas){
-                if(m.getNome().equalsIgnoreCase(nomeTit) || m.getSobrenome().equalsIgnoreCase(nomeTit)){
+                String nomeCompleto = m.getNome()+" "+m.getSobrenome();
+
+                if(nomeCompleto.equalsIgnoreCase(nomeTit)){
                     System.out.println("Agora digite o nome do Banco dessa pessoa: ");
                     String nomeBanco = tec.nextLine();
                     for(Banco i : bancosCadastrados){
@@ -103,7 +112,7 @@ public class Banco {
                             System.out.println("Digite uma senha para essa conta:");
                             String senh = tec.nextLine();
 
-                            ContaPoupanca abo = new ContaPoupanca(m,i,numero,0,senh,25,3);
+                            ContaPoupanca abo = new ContaPoupanca(m,i,numero,1,senh,25,3);
                             contas.add(abo);
                             contasPoupancas.add(abo);
 
@@ -133,14 +142,18 @@ public class Banco {
         System.out.printf("Digite: ");
         int digite = tec.nextInt();
 
-        if(digite ==1 ){
+        if(digite == 1 ){
             tec.nextLine();
 
             System.out.println("Digite o nome do titular da conta: ");
             String nomee = tec.nextLine();
 
             for(ContaCorrente ccc : contasCorrentes) {
-                if (ccc.getTitular().getNome().equalsIgnoreCase(nomee) || ccc.getTitular().getSobrenome().equalsIgnoreCase(nomee)) {
+
+                String nomeCompleto = ccc.getTitular().getNome()+" "+ccc.getTitular().getSobrenome();
+
+                if(nomeCompleto.equalsIgnoreCase(nomee)){
+                
                     System.out.println("Digite o número da conta: ");
                     int num = tec.nextInt();
 
@@ -175,7 +188,11 @@ public class Banco {
                 String nomee = tec.nextLine();
 
                 for(ContaPoupanca ccc : contasPoupancas) {
-                    if (ccc.getTitular().getNome().equalsIgnoreCase(nomee) || ccc.getTitular().getSobrenome().equalsIgnoreCase(nomee)) {
+
+                    String nomeCompleto = ccc.getTitular().getNome()+" "+ccc.getTitular().getSobrenome();
+
+                    if(nomeCompleto.equalsIgnoreCase(nomee)){
+
                         System.out.println("Digite o número da conta: ");
                         int num = tec.nextInt();
 

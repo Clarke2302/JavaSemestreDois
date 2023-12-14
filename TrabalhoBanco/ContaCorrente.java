@@ -14,11 +14,10 @@ public class ContaCorrente extends ContaBancaria{
 
     }
 
-    public void info(ArrayList<ContaCorrente> contasCorrentes,ArrayList<Pessoa> pessoasCadastradas){
-        for(Pessoa a : pessoasCadastradas){
+    public void info(ArrayList<ContaCorrente> contasCorrentes){
             for(ContaCorrente cc : contasCorrentes){
             System.out.println("\n"+"==========Info Conta Corrente=========="+"\n"
-            +"Titular da Conta: "+a.getNome()+" "+a.getSobrenome()+"\n"
+            +"Titular da Conta: "+cc.getTitular().getNome()+" "+cc.getTitular().getSobrenome()+"\n"
             +"Nome do Banco: "+cc.getBanco().getNomeBanco()+"\n"
             +"Número da Conta: "+cc.getNumConta()+"\n"
             +"Saldo: R$ "+cc.getSaldo()+"\n"
@@ -26,11 +25,10 @@ public class ContaCorrente extends ContaBancaria{
             +"=======================================");
             }
         }
-    }
 
     public void novoMes(){
         System.out.println("\n"+"Olá já se passou mais um mês, e estaremos recolhendo a taxa mensal desse mês hoje!");
-        double novoSaldo = getSaldo() - taxasMensais;
+        double novoSaldo = getSaldo() - getTaxasMensais();
         setSaldo(novoSaldo);
     }
 
@@ -43,3 +41,4 @@ public class ContaCorrente extends ContaBancaria{
         this.taxasMensais=novaTaxa;
     }
 }
+

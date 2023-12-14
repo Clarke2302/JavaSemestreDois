@@ -54,7 +54,7 @@ public class Main {
                 bb.criarConta(tec,pessoasCadastradas,bancosCadastrados,contasCorrentes,contasPoupancas,contas);
             }
             if(tecla == 4){ //funciona  --> saldo nao aparece
-                cc.info(contasCorrentes,pessoasCadastradas);
+                cc.info(contasCorrentes);
             }
             if(tecla == 5){ //funciona ---> saldo nao aparece
                 cp.info(contasPoupancas,pessoasCadastradas);
@@ -66,10 +66,10 @@ public class Main {
                 cc.deposito(tec,contas);
             }
             if(tecla == 8){   //----> senha == null
-                cp.saque(20,tec,contas,1154);
+                cp.saque(20,tec,contas,664);
             }
             if(tecla == 9){
-                cp.deposito(400);
+                cp.deposito(400,contas,664);
             }
             if(tecla == 10){
                 vi.info(pessoasCadastradas);
@@ -102,7 +102,8 @@ public class Main {
 
     public static void cadastraBanco(Scanner tec, ArrayList<Banco> bancosCadastrados){
         tec.nextLine(); //buffer
-        System.out.println("\n"+"Bem-Vindo ao Cadastro de Banco: "+"\n"
+        System.out.println("\n"+"Bem-Vindo ao Cadastro de Banco: "
+        +"\n"+"-----------------------------------------"+"\n"
         +"Digite o nome do Banco: ");
         String nomebanco = tec.nextLine();
         System.out.println("Digite o CNPJ: ");
@@ -118,7 +119,8 @@ public class Main {
 
     public static void cadastraPessoa(Scanner tec, ArrayList<Pessoa> pessoasCadastradas ){
         tec.nextLine(); //buffer
-        System.out.println("\n"+"Bem-Vindo ao Cadastro de Pessoas: "+"\n"
+        System.out.println("\n"+"Bem-Vindo ao Cadastro de Pessoas: "
+        +"\n"+"-----------------------------------------"+"\n"
         +"Digite o nome dessa pessoa: ");
         String nome = tec.nextLine();
         System.out.println("Agora o sobrenome: ");
