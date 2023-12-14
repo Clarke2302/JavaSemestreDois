@@ -41,24 +41,33 @@ public class ContaPoupanca extends ContaBancaria{
         setSaquesMensais(0);
     }
 
-    public void saque(Scanner tec){
+    public void saque(Scanner tec, ArrayList<ContaBancaria> contas){
         System.out.println("\n"+":Menu Saque:");
 
-        if(verificaSenha(tec)==true){
+        for(ContaBancaria cb : contas){
 
-            if(getSaquesMensais()<3){
-        
-            System.out.println("Qual o valor a ser sacado: ");
-            double sacar = tec.nextDouble();
+            System.out.println("Digite o número da conta: ");
+            int num = tec.nextInt();
 
-                if(sacar>getSaldo()){
-                    System.out.println("\n"+"Seu saldo é insuficiente para essa retirada!"+"\n"+"Digite um valor menor!");
-                }else if(getSaldo()>sacar){
-                    saldo -= sacar;
-                    System.out.println("\n"+"Ok, tudo certo com o saque!"+"\n"+"Você sacou R$"+sacar+" seu saldo agora é de R$ "+saldo);
+            if(cb.getNumConta() == num){
+
+                if(verificaSenha(tec,contas)==true){
+
+                    if(getSaquesMensais()<3){
+                
+                    System.out.println("Qual o valor a ser sacado: ");
+                    double sacar = tec.nextDouble();
+
+                        if(sacar>getSaldo()){
+                            System.out.println("\n"+"Seu saldo é insuficiente para essa retirada!"+"\n"+"Digite um valor menor!");
+                        }else if(getSaldo()>sacar){
+                            saldo -= sacar;
+                            System.out.println("\n"+"Ok, tudo certo com o saque!"+"\n"+"Você sacou R$"+sacar+" seu saldo agora é de R$ "+saldo);
+                        }
+                    }else{
+                        System.out.println("\n"+"Você atingiu o limite de saques mensais!"+"\n"+"Agora só poderá sacar no mês seguinte!");
+                    }
                 }
-            }else{
-                System.out.println("\n"+"Você atingiu o limite de saques mensais!"+"\n"+"Agora só poderá sacar no mês seguinte!");
             }
         }
     }
